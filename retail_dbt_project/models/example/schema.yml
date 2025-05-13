@@ -12,8 +12,38 @@ models:
     description: "Summary of stock levels by product and warehouse"
     columns:
       - name: product_id
+        description: "Unique identifier for each product"
         tests:
           - not_null
+
+      - name: product_name
+        description: "Name of the product"
+        tests:
+          - not_null
+
+      - name: warehouse
+        description: "Warehouse name or location"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Warehouse A', 'Warehouse B', 'Warehouse C']  # You can adjust this to match real data
+
+      - name: days_recorded
+        description: "Number of days stock level was recorded"
+        tests:
+          - not_null
+
       - name: avg_stock_level
+        description: "Average stock level during the recorded period"
+        tests:
+          - not_null
+
+      - name: max_stock
+        description: "Maximum stock level"
+        tests:
+          - not_null
+
+      - name: min_stock
+        description: "Minimum stock level"
         tests:
           - not_null
