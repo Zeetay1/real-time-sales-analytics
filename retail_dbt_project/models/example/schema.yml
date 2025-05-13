@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: inventory
+    database: RETAIL_DB
+    schema: INVENTORY
+    tables:
+      - name: daily_stock
+
+models:
+  - name: inventory_summary
+    description: "Summary of stock levels by product and warehouse"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+      - name: avg_stock_level
+        tests:
+          - not_null
